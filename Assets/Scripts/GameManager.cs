@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
 
 	// References
 	public Player player;
+	public FloatingTextManager floatingTextManager;
 
 	// PlayerResources
 	public int gold;
@@ -28,6 +29,11 @@ public class GameManager : MonoBehaviour {
 		instance = this;
 		SceneManager.sceneLoaded += LoadState;
 		DontDestroyOnLoad(gameObject);
+	}
+
+	// Global access to show floating text via the manager
+	public void ShowText(string message, int fontSize, Color color, Vector3 position, Vector3 motion, float duration) {
+		floatingTextManager.Show(message, fontSize, color, position, motion, duration);
 	}
 
 	// Saving and Loading the Game State

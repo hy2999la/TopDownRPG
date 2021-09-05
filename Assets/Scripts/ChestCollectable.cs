@@ -8,7 +8,14 @@ public class ChestCollectable : Collectable {
 		if (!collected) {
 			collected = true;
 			GetComponent<SpriteRenderer>().sprite = emptyChest;
-			Debug.Log($"Granted {goldAmount} gold");
+			GameManager.instance.ShowText(
+				$"+{goldAmount} Gold!",
+				20,
+				new Color(1f, 0.761586f, 0.2207547f),
+				new Vector3(transform.position.x + 0.1f, transform.position.y + 0.1f, 0),
+				Vector3.up * 25,
+				1.5f
+			);
 		}
 	}
 }

@@ -25,8 +25,7 @@ public class Player : MonoBehaviour {
 		// Swap sprite direction based on moveDelta
 		if (moveDelta.x > 0) {
 			transform.localScale = Vector3.one;
-		}
-		else if (moveDelta.x < 0) {
+		} else if (moveDelta.x < 0) {
 			transform.localScale = new Vector3(-1, 1, 1);
 		}
 
