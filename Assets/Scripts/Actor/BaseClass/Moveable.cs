@@ -23,6 +23,12 @@ public abstract class Moveable : Hittable {
 			transform.localScale = new Vector3(-1, 1, 1);
 		}
 
+		// Add movement based on push from hits
+		moveDelta += pushDirection;
+
+		// Reduce pushDirection based on pushRecovery
+		pushDirection = Vector3.Lerp(pushDirection, Vector3.zero, pushRecoverySpeed);
+
 		// Collision detection by casting a box in the Y direction first, if our collider returns null, we are free to move
 		hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(0, moveDelta.y), Mathf.Abs(moveDelta.y * Time.deltaTime), LayerMask.GetMask("Actor", "Blocking"));
 		if (hit.collider == null) {

@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 467272926}
   - component: {fileID: 467272928}
   - component: {fileID: 467272927}
+  - component: {fileID: 467272929}
   m_Layer: 7
   m_Name: Hitbox
   m_TagString: Untagged
@@ -232,6 +233,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &467272929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467272925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b2ea6b3cdc638e4ab2ee368d603c0aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  damageNum: 1
+  pushForce: 3
 --- !u!1 &793337709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,7 +2964,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   damageNum: 1
-  pushForce: 2
+  pushForce: 3
   weaponLevel: 0
   cooldown: 0.5
 --- !u!61 &1421935143
@@ -3051,7 +3080,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 4289113178680934050, guid: 80c1a9b1ab558b041ba7524138436d19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.16, y: 0.16}
