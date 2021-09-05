@@ -1,26 +1,20 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour {
-	private BoxCollider2D boxCollider;
-	private Vector3 moveDelta;
-	private RaycastHit2D hit;
+public abstract class Moveable : Hittable {
+	protected BoxCollider2D boxCollider;
+	protected Vector3 moveDelta;
+	protected RaycastHit2D hit;
+	protected float ySpeed = 0.75f;
+	protected float xSpeed = 1.0f;
 
 	// Start is called before the first frame update
-	private void Start() {
+	protected virtual void Start() {
 		boxCollider = GetComponent<BoxCollider2D>();
 	}
 
-	// Update is called once per frame
-	private void FixedUpdate() {
-		// Look for keyboard inputs to add to moveDelta
-		//  Input is defined in InputManager (axis: Horizontal and Vertical)
-		//  a,left for - / d,right for + Horizontal
-		//  s,down for - / w,up for + Vertical
-		float x = Input.GetAxisRaw("Horizontal");
-		float y = Input.GetAxisRaw("Vertical");
-
+	protected virtual void UpdateMotor(Vector3 input) {
 		// Reset moveDelta
-		moveDelta = new Vector3(x, y, 0);
+		moveDelta = new Vector3(input.x * xSpeed, input.y * ySpeed, 0);
 
 		// Swap sprite direction based on moveDelta
 		if (moveDelta.x > 0) {
@@ -42,6 +36,5 @@ public class Player : MonoBehaviour {
 			// Y Movement
 			transform.Translate(moveDelta.x * Time.deltaTime, 0, 0);
 		}
-
 	}
 }
